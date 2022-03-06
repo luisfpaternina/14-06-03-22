@@ -294,10 +294,11 @@ class PickupOrderManufacturing(models.Model):
         }
 
     def _action_procurement_create(self):
-        """
+        
         Create procurements based on quantity ordered. If the quantity is increased, new
         procurements are created. If the quantity is decreased, no automated action is taken.
-        """
+        
+
         precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
         new_procs = self.env['procurement.order']  # Empty recordset
         for line in self:
