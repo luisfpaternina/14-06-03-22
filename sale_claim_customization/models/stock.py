@@ -16,9 +16,9 @@ class StockPicking(models.Model):
     # line_pickup_order_ids = fields.Many2many('pickup.order.line',  compute='_compute_line_pickup_order_ids',
     #     string="Articles with problems")
 
-   #and# pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
-   #and# line_pickup_order_ids = fields.Many2many('pickup.order.line', related='pickup_order_id.line_ids',
-        string="Articles with problems"
+    #and# pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
+    #and# line_pickup_order_ids = fields.Many2many('pickup.order.line', related='pickup_order_id.line_ids',
+    #and#     string="Articles with problems"
 
     # @api.model
     # def _prepare_values_extra_move(self, op, product, remaining_qty):
