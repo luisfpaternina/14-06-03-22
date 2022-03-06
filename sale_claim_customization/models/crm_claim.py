@@ -8,16 +8,16 @@ _logger = logging.getLogger(__name__)
 
 class CrmClaim(models.Model):
     _inherit = "crm.claim"
-"""
+    """
     @api.model
     def _default_warehouse_id(self):
         company = self.env.user.company_id.id
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
-"""
+    """
     #and# order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
-   ## reference = fields.Char(related="order_id.our_reference", string="Ntra Reference", store=True)
-   ## reference_client = fields.Char(related="order_id.client_order_ref", string="Client Reference", store=True)
+    ## reference = fields.Char(related="order_id.our_reference", string="Ntra Reference", store=True)
+    ## reference_client = fields.Char(related="order_id.client_order_ref", string="Client Reference", store=True)
     #and#motive = fields.Many2one(comodel_name='incidence.cause', string='Incidence Cause')
     solution = fields.Boolean('Solution')
     #and#line_ids = fields.Many2many('claim.line', 'claim_line_rel', 'claim_id', 'line_id', string='Articles with problems')
@@ -36,7 +36,7 @@ class CrmClaim(models.Model):
     #and#warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', required=True,
     #and#                               default=_default_warehouse_id)
     #and#group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
-"""
+    """
     def _compute_pickup_id(self):
         pickup_id = self.env['pickup.order'].search([('claim_id', '=', self.id)], limit=1)
         if pickup_id:
