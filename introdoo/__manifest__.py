@@ -15,7 +15,7 @@
 {
     'name': 'Introdoo',
 
-    'version': '13.1',
+    'version': '13.1.0',
 
     'author': "Luis Felipe Paternina",
 
