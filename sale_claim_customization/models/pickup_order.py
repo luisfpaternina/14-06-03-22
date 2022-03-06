@@ -33,7 +33,7 @@ class PickupOrder(models.Model):
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
 """
-    name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
+    name = fields.Char('Name', required=True)
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
     #and#sale_order_id = fields.Many2one('sale.order', string='Sale order')
