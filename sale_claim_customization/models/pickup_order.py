@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 class PickupOrder(models.Model):
     _name = 'pickup_order'
     _description = 'Pickup Orders'
-"""
+    """
     def _compute_picking(self):
         for order in self:
             pickings = self.env['stock.picking'].search([('pickup_order_id', '=', order.id)])
@@ -32,7 +32,7 @@ class PickupOrder(models.Model):
         company = self.env.user.company_id.id
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
-"""
+    """
     name = fields.Char('Name', required=True)
     emission_date = fields.Date(string='Emission Date', required=True)
     expected_date = fields.Date(string='Expected date')
