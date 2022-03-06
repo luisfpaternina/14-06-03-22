@@ -34,8 +34,8 @@ class PickupOrder(models.Model):
         return warehouse_ids
 """
     name = fields.Char('Name', required=True)
-    emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
-    expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
+    emission_date = fields.Date(string='Emission Date', required=True)
+    expected_date = fields.Date(string='Expected date')
     #and#sale_order_id = fields.Many2one('sale.order', string='Sale order')
     #and#partner_id = fields.Many2one("res.partner", "Customer", required=True, domain=[("customer", "=", True)])
     # estos son lo que debes hacer igual un campo para relacionar y uno para el domain
