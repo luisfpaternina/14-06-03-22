@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 class PickupOrder(models.Model):
     _name = 'pickup_order'
     _description = 'Pickup Orders'
-
+"""
     def _compute_picking(self):
         for order in self:
             pickings = self.env['stock.picking'].search([('pickup_order_id', '=', order.id)])
@@ -32,15 +32,15 @@ class PickupOrder(models.Model):
         company = self.env.user.company_id.id
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
-
+"""
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
-    sale_order_id = fields.Many2one('sale.order', string='Sale order')
-    partner_id = fields.Many2one("res.partner", "Customer", required=True, domain=[("customer", "=", True)])
+    #and#sale_order_id = fields.Many2one('sale.order', string='Sale order')
+    #and#partner_id = fields.Many2one("res.partner", "Customer", required=True, domain=[("customer", "=", True)])
     # estos son lo que debes hacer igual un campo para relacionar y uno para el domain
-    line_ids = fields.Many2many('pickup_order.line', 'pickup_line_rel', string='Articles with problems')
-    domain_line_ids = fields.Many2many('pickup_order.line', 'pickup_line_domain_rel', 'pickup_id', 'line_id', string='Domain Articles')
+    #and#line_ids = fields.Many2many('pickup_order.line', 'pickup_line_rel', string='Articles with problems')
+    #and#domain_line_ids = fields.Many2many('pickup_order.line', 'pickup_line_domain_rel', 'pickup_id', 'line_id', string='Domain Articles')
    #and# route_id = fields.Many2one(related='partner_id.route_id', string='Router')
     type = fields.Selection([
         ('partial', 'Partial'),
@@ -54,8 +54,9 @@ class PickupOrder(models.Model):
         ('received', 'Received'),
         ('cancel', 'Cancel')], string='State',
        copy=False, default='draft')
-    claim_id = fields.Many2one('crm.claim', string='Claim')
+    #and#claim_id = fields.Many2one('crm.claim', string='Claim')
 
+"""
     # Inventario
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, states={'done': [('readonly', True)],
                                                                                   'received': [('readonly', True)],
@@ -73,12 +74,12 @@ class PickupOrder(models.Model):
                                       default=_default_picking_type,
                                       help="This will determine picking type of incoming shipment")
     group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
-
+"""
     #Viaje
-    travel_id = fields.Many2one('travel_sale', string='Travel', copy=False)
+   #and# travel_id = fields.Many2one('travel_sale', string='Travel', copy=False)
 
 
-
+"""
     @api.onchange('partner_id')
     def onchange_partner_id(self):
         if self.partner_id:
@@ -237,16 +238,16 @@ class PickupOrder(models.Model):
                 lines_val.append(line)
             vals['line_ids'] = lines_val
         return super(PickupOrder, self).write(vals)
-
+"""
 
 class PickupOrderLine(models.Model):
     _name = 'pickup_order.line'
 
     # order_id = fields.Many2one('pickup.order', string='Pickup Order', ondelete='cascade')
-    semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
-    package_id = fields.Many2one('package.product.label', string='Package', required=False)
+    #and#semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
+    #and#package_id = fields.Many2one('package.product.label', string='Package', required=False)
     label = fields.Char('Label', required=True)
-    product_id = fields.Many2one('product.product', string='Product', required=False)
+   #and# product_id = fields.Many2one('product.product', string='Product', required=False)
     #and#length = fields.Float(related='product_id.length', readonly="1")
     #and#height = fields.Float(related='product_id.height', readonly="1")
     #and#width = fields.Float(related='product_id.width', readonly="1")
@@ -254,21 +255,21 @@ class PickupOrderLine(models.Model):
 class PickupOrderManufacturing(models.Model):
     _name = 'pickup_order.manufacturing'
 
-    claim_id = fields.Many2one('crm.claim', string='Claim', ondelete='cascade')
-    semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
-    package_id = fields.Many2one('package.product.label', string='Package', required=False)
+    #and#claim_id = fields.Many2one('crm.claim', string='Claim', ondelete='cascade')
+    #and#semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
+    #and#package_id = fields.Many2one('package.product.label', string='Package', required=False)
     label = fields.Char('Label', required=True)
-    product_id = fields.Many2one('product.product', string='Product', required=False)
+    #and#product_id = fields.Many2one('product.product', string='Product', required=False)
     product_qty = fields.Float(string='Quantity', digits='Product Unit of Measure',
                                default=1.0)
-    product_uom_id = fields.Many2one(
-        'product.uom', 'Product Unit of Measure')
+    #and#product_uom_id = fields.Many2one(
+    #and#   'product.uom', 'Product Unit of Measure')
    #and# length = fields.Float(related='product_id.length', readonly="1")
    #and# height = fields.Float(related='product_id.height', readonly="1")
    #and# width = fields.Float(related='product_id.width', readonly="1")
-    production_id = fields.Many2one('mrp.production', string='Production', compute='_compute_production_id')
-    state_production = fields.Selection(related='production_id.state', readonly="1")
-
+    #and#production_id = fields.Many2one('mrp.production', string='Production', compute='_compute_production_id')
+    #and#state_production = fields.Selection(related='production_id.state', readonly="1")
+"""
     def _compute_production_id(self):
         procurment_order = self.env['procurement.order'].search([('pickup_manufacturing_id', '=', self.id)], limit=1)
         if procurment_order:
@@ -316,6 +317,6 @@ class PickupOrderManufacturing(models.Model):
         new_procs.run()
         return new_procs
 
-
+"""
 
 

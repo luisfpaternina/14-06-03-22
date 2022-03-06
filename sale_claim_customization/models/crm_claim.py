@@ -8,35 +8,35 @@ _logger = logging.getLogger(__name__)
 
 class CrmClaim(models.Model):
     _inherit = "crm.claim"
-
+"""
     @api.model
     def _default_warehouse_id(self):
         company = self.env.user.company_id.id
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
-
-    order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
+"""
+    #and# order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
    ## reference = fields.Char(related="order_id.our_reference", string="Ntra Reference", store=True)
    ## reference_client = fields.Char(related="order_id.client_order_ref", string="Client Reference", store=True)
-    motive = fields.Many2one(comodel_name='incidence.cause', string='Incidence Cause')
+    #and#motive = fields.Many2one(comodel_name='incidence.cause', string='Incidence Cause')
     solution = fields.Boolean('Solution')
-    line_ids = fields.Many2many('claim.line', 'claim_line_rel', 'claim_id', 'line_id', string='Articles with problems')
-    domain_line_ids = fields.Many2many('claim.line', 'claim_line_domain_rel', 'claim_id', 'line_id', string='Domain Articles')
+    #and#line_ids = fields.Many2many('claim.line', 'claim_line_rel', 'claim_id', 'line_id', string='Articles with problems')
+    #and#domain_line_ids = fields.Many2many('claim.line', 'claim_line_domain_rel', 'claim_id', 'line_id', string='Domain Articles')
     date = fields.Date(string='Claim Date', index=True, default=fields.Datetime.now)
-    pickup_id = fields.Many2one('pickup.order', string='Pickup Order', compute='_compute_pickup_id')
-    state_pickup = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-        ('received', 'Received'),
-        ('cancel', 'Cancel')], string='State Pickup Order', compute='_compute_pickup_id')
+    #and#pickup_id = fields.Many2one('pickup.order', string='Pickup Order', compute='_compute_pickup_id')
+    #and# state_pickup = fields.Selection([
+    #and#    ('draft', 'Draft'),
+    #and#    ('done', 'Done'),
+    #and#    ('received', 'Received'),
+    #and#    ('cancel', 'Cancel')], string='State Pickup Order', compute='_compute_pickup_id')
 
     # Fabricacion
-    manufacturing_ids = fields.One2many('pickup.order.manufacturing', 'claim_id', string="Manufactured")
+    #and#manufacturing_ids = fields.One2many('pickup.order.manufacturing', 'claim_id', string="Manufactured")
     is_manufacturing = fields.Boolean('Manufacturing', default=False)
-    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', required=True,
-                                   default=_default_warehouse_id)
-    group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
-
+    #and#warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', required=True,
+    #and#                               default=_default_warehouse_id)
+    #and#group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
+"""
     def _compute_pickup_id(self):
         pickup_id = self.env['pickup.order'].search([('claim_id', '=', self.id)], limit=1)
         if pickup_id:
@@ -128,7 +128,7 @@ class CrmClaim(models.Model):
             return action
         return True
 
-
+"""
 class ClaimLine(models.Model):
     _name = 'claim.line'
 

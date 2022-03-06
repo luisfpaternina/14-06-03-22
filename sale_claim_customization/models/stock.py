@@ -16,8 +16,8 @@ class StockPicking(models.Model):
     # line_pickup_order_ids = fields.Many2many('pickup.order.line',  compute='_compute_line_pickup_order_ids',
     #     string="Articles with problems")
 
-    pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
-    line_pickup_order_ids = fields.Many2many('pickup.order.line', related='pickup_order_id.line_ids',
+   #and# pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
+   #and# line_pickup_order_ids = fields.Many2many('pickup.order.line', related='pickup_order_id.line_ids',
         string="Articles with problems")
 
     # @api.model
@@ -28,7 +28,7 @@ class StockPicking(models.Model):
     #             res['purchase_line_id'] = m.move_id.purchase_line_id.id
     #             break
     #     return res
-
+"""
     @api.model
     def _create_backorder(self, backorder_moves=[]):
         res = super(StockPicking, self)._create_backorder(backorder_moves)
@@ -97,3 +97,5 @@ class StockMove(models.Model):
                     lambda x: x.state not in ('done', 'cancel')):
                 rec.picking_id.pickup_order_id.action_received()
         return res
+
+"""
