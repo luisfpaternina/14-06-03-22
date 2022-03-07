@@ -20,9 +20,9 @@ class ClaimLine(models.Model):
     _name = 'claim.line'
 
     label = fields.Char('Label', required=True)
-    length = fields.Float(related='product_id.length', readonly="1")
-    height = fields.Float(related='product_id.height', readonly="1")
-    width = fields.Float(related='product_id.width', readonly="1")
+    length = fields.Float(readonly="1")
+    height = fields.Float(readonly="1")
+    width = fields.Float(readonly="1")
     
 class IncidenceCause(models.Model):
     _name = "incidence.cause"
