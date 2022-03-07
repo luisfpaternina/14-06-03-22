@@ -26,6 +26,5 @@ class ClaimLine(models.Model):
     
 class IncidenceCause(models.Model):
     _name = "incidence.cause"
-    _rec_name = "description"
     
-    description = fields.Char(string='Description')
+    description = fields.Char(string='Description', store=True)

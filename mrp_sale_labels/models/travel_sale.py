@@ -6,16 +6,9 @@ class CrmLeadType(models.Model):
     _name = 'travel_sale'
     _description = 'Oportunity type'
 
-    name = fields.Char(
-        String="Name",
-        tracking=True)
-    active = fields.Boolean(
-        string="Active",
-        default=True,
-        tracking=True)
-    days_maximum_stage = fields.Integer(
-        string="Days maximum stage",
-        tracking=True)
+    name = fields.Char(string="Name")
+    active = fields.Boolean(string="Active")
+    days_maximum_stage = fields.Integer(string="Days maximum stage")
 
 
     @api.onchange('name')
