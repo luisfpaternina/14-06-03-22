@@ -8,7 +8,7 @@ class CrmLeadType(models.Model):
 
     name = fields.Char(string="Name")
     active = fields.Boolean(string="Active")
-    days_maximum_stage = fields.Integer(string="Days maximum stage")
+    days_maximum_stage = fields.Integer(string="Days maximum stage ")
 
 
     @api.onchange('name')
