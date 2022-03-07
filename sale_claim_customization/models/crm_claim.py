@@ -28,4 +28,4 @@ class IncidenceCause(models.Model):
     _name = "incidence.cause"
     _rec_name = "description"
     
-    description = fields.Char('Description', size=255)
+    description = fields.Char('Description')
