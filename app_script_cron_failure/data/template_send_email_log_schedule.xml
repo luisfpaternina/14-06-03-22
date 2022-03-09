@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="template_send_log_schedule" model="mail.template">
+            <field name="name">Plantilla de correo registro de acciones planificadas</field>
+            <field name="model_id" ref="base.model_ir_cron"/>
+            <field name="subject">Registro de acciones planificadas</field>
+            <field name="email_from"></field>
+            <field name="email_to"></field>
+            <field name="lang">${user.lang}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <br/>
+                <p>Registro de acciones planificadas</p>
+
+               
+                 ]]>
+            </field>
+        </record>
+    </data>
+</odoo>
