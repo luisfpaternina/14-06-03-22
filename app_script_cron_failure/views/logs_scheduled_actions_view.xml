@@ -34,6 +34,7 @@
                                 <field name="object_action" />
                                 <field name="exec_date" />
                                 <field name="company_name" />
+                                <field name="is_validate" />
                             </group>
                         </group>
                         <notebook>
