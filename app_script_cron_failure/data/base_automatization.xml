@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <record id="automatization_send_email_log_schedule" model="base.automation">
         <field name="name">Enviar correo registro de acciones planificadas</field>
         <field name="model_id" ref="app_script_cron_failure.model_logs_action"/>
@@ -9,4 +10,15 @@
         <field name="template_id" ref="app_script_cron_failure.email_template_log_register"/>
         <field name="filter_domain"></field>
     </record>
+
+    <record id="automatization_logs_schedule" model="base.automation">
+        <field name="name">Logs acciones planificadas</field>
+        <field name="model_id" ref="app_script_cron_failure.model_logs_action"/>
+        <field name="state">email</field>
+        <field name="trigger">on_write</field>
+        <field name="active" eval="True"/>
+        <field name="template_id" ref="app_script_cron_failure.email_template_log_register"/>
+        <field name="filter_domain"></field>
+    </record>
+
 </odoo>
