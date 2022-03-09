@@ -26,6 +26,7 @@ class LogsScheduledActions(models.Model):
         [('new', 'New'), ('confirm', 'Confirmed'), ('resolved', 'Resolved'), ('cancelled', 'Cancelled')], default='new')
     error_details = fields.Char(
         string="Error details", track_visibility='always')
+    is_validate=fields.Boolean(string="Is Validate", default=False)
 
     def action_mail_send(self):
         self.ensure_one()
