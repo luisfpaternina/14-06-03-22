@@ -19,7 +19,7 @@
         'views/error_mail_template.xml',
         'security/ir.model.access.csv',
         'data/template_send_email_log_schedule.xml',
-        #'data/base_automatization.xml',
+        'data/base_automatization.xml',
     ],
     'demo': [
         'demo/ir_cron_demo.xml'
