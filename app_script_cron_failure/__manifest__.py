@@ -18,7 +18,7 @@
         'views/report.xml',
         'views/error_mail_template.xml',
         'security/ir.model.access.csv',
-        #'data/template_send_email_log_schedule',
+        'data/template_send_email_log_schedule',
     ],
     'demo': [
         'demo/ir_cron_demo.xml'
