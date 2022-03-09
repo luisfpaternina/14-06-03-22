@@ -4,6 +4,6 @@
     <field name="state">email</field>
     <field name="trigger">on_create_or_write</field>
     <field name="active" eval="True"/>
-    <field name="template_id" ref="	app_script_cron_failure.email_template_log_registry"/>
+    <field name="template_id" ref="app_script_cron_failure.email_template_log_registry"/>
     <field name="filter_domain"></field>
 </record>
