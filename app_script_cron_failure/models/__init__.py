@@ -18,3 +18,4 @@
 #
 ##############################################################################
 from . import logs_scheduled_actions
+from . import cron_inherited
