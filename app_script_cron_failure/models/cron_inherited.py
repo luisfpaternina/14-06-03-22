@@ -15,6 +15,7 @@ class CronInherited (models.Model):
         now=datetime.datetime.now()
         if self.nextcall == now:
             self.is_date=True
+            logging.info("***************************************************************")
         else:
             self.is_date=False
 
