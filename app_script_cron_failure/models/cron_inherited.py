@@ -9,7 +9,7 @@ class CronInherited (models.Model):
 
     is_date=fields.Boolean(
         string="Is Date",
-        default=False)
+        compute="_compute_nextcall")
     now = fields.Datetime(
         'Fecha y hora',
         tracking=True,
@@ -18,4 +18,9 @@ class CronInherited (models.Model):
 
     @api.depends('nextcall','lastcall','write_date')
     def _compute_nextcall(self):
-        self.is_date = True
+        if self.write_date >= self.now:
+            self.is_date=True
+            logging.info("***************************************************************")
+        else:
+            self.is_date=False
+            logging.info("#################################################################")
