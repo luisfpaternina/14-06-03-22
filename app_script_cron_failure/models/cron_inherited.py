@@ -11,7 +11,8 @@ class CronInherited (models.Model):
 
     @api.onchange('lastcall')
     def onchange_lastcall(self):
-        self.is_date=True
+        if self.lastcall:
+            self.is_date=True
 
     
     #def _is_date(self):
