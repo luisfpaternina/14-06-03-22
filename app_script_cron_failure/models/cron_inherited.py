@@ -15,6 +15,15 @@ class CronInherited (models.Model):
         tracking=True,
         default= fields.Datetime().now())
 
+    time = fields.Integer(string="Tiempo", compute=('_calculate_time'))
+
+    @api.depends('write_date','lastcall')
+    def _calculate_time(self):
+        if self.write_date and self.lastcall:
+            self.time=(self.write_date-self.lastcall).seconds
+        else:
+            self.time=0
+
 
     @api.depends('nextcall','lastcall','write_date')
     def _compute_nextcall(self):
