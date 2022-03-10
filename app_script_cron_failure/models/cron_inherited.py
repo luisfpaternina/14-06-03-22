@@ -18,6 +18,7 @@ class CronInherited (models.Model):
             logging.info("***************************************************************")
         else:
             self.is_date=False
+            logging.info("#################################################################")
 
 
 
