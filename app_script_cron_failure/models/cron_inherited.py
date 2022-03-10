@@ -17,7 +17,7 @@ class CronInherited (models.Model):
         now = datetime.datetime.now()
         logging.info("===================================")
         logging.info(now)
-        if self.write_date == now:
+        if self.write_date >= now:
             self.is_date=True
             logging.info("***************************************************************")
         else:
