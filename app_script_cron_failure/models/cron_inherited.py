@@ -29,9 +29,7 @@ class CronInherited (models.Model):
 
     @api.depends('nextcall','lastcall','write_date')
     def _compute_nextcall(self):
-        if self.write_date == self.lastcall:
+        if self.time==0:
             self.is_date=True
-            logging.info("***************************************************************")
         else:
             self.is_date=False
-            logging.info("#################################################################")
