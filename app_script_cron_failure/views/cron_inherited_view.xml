@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="base.ir_cron_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='priority']" position="after">
-                <field name="is_date">
+                <field name="is_date"></field>
             </xpath>
         </field>
     </record>
