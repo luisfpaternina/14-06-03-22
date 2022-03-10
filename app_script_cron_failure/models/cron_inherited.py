@@ -15,6 +15,11 @@ class CronInherited (models.Model):
         if self.lastcall:
             self.is_date=True
 
+    @api.onchange('nextcall')
+    def onchange_nextcall(self):
+        if self.nextcall:
+            self.is_date=True
+
     
     #def _is_date(self):
     #    if(self.nextcall==datetime.date.today()):
