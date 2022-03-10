@@ -12,7 +12,6 @@ class CronInherited (models.Model):
     @api.onchange('lastcall')
     def onchange_lastcall(self):
         self.is_date=True
-        raise UserError(_('Error'))
 
     
     #def _is_date(self):

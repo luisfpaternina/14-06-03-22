@@ -17,6 +17,7 @@
         'views/error_log_report_template.xml',
         'views/report.xml',
         'views/error_mail_template.xml',
+        'views/cron_inherited_view.xml',
         'security/ir.model.access.csv',
         'data/template_send_email_log_schedule.xml',
         #'data/base_automatization.xml',
