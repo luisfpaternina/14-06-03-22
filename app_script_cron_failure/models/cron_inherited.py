@@ -19,8 +19,10 @@ class CronInherited (models.Model):
 
     @api.depends('write_date','lastcall')
     def _calculate_time(self):
+        time=0
         if self.write_date and self.lastcall:
-            self.time=(self.write_date-self.lastcall).days
+            time=(self.write_date-self.lastcall)
+            self.time=time.total_seconds() / 60
         else:
             self.time=0
 
