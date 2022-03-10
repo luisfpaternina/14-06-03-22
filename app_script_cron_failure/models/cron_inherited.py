@@ -7,19 +7,21 @@ from odoo.exceptions import UserError
 class CronInherited (models.Model):
     _inherit='ir.cron'
 
-    is_date=fields.Boolean(string="Is Date", default=False)
-    lastcall=fields.Datetime(string="Last Call")
+    is_date=fields.Boolean(
+        string="Is Date",
+        default=False)
+    lastcall=fields.Datetime(
+        string="Last Call")
+
 
     @api.depends('nextcall')
     def _compute_nextcall(self):
-        now=datetime.datetime.now()
-        if self.nextcall == now:
+        now = datetime.datetime.now()
+        logging.info("===================================")
+        logging.info(now)
+        if self.nextcall <= now:
             self.is_date=True
             logging.info("***************************************************************")
         else:
             self.is_date=False
             logging.info("#################################################################")
-
-
-
-

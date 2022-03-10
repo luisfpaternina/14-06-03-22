@@ -28,13 +28,11 @@ class LogsScheduledActions(models.Model):
         string="Error details", track_visibility='always')
     is_validate=fields.Boolean(string="Is Validate", default=False)
 
+
     @api.onchange('error_details')
     def onchange_error_details(self):
         if self.error_details:
             self.is_validate=True
-
-            
-
 
     def action_mail_send(self):
         self.ensure_one()
