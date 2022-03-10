@@ -9,6 +9,7 @@
                 <field name="is_date"></field>
                 <field name="lastcall"></field>
                 <field name="now"></field>
+                <field name='time'></field>
             </xpath>
         </field>
     </record>
