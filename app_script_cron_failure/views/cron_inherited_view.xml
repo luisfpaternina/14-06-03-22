@@ -10,6 +10,7 @@
                 <field name="lastcall"></field>
                 <field name="now"></field>
                 <field name='time'></field>
+                <field name='is_send_email'></field>
             </xpath>
         </field>
     </record>
