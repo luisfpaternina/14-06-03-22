@@ -5,7 +5,7 @@ from odoo.tools.translate import _
 from odoo.exceptions import UserError
 
 class CronInherited (models.Model):
-    _inherit='ir.cron'
+    _inherit=['ir.cron','mail.thread']
 
     is_date=fields.Boolean(
         string="Is Date",
