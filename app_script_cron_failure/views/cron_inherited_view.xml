@@ -8,6 +8,7 @@
             <xpath expr="//field[@name='priority']" position="after">
                 <field name="is_date"></field>
                 <field name="lastcall"></field>
+                <field name="now"></field>
             </xpath>
         </field>
     </record>
