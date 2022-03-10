@@ -7,12 +7,14 @@ from odoo.exceptions import UserError
 class CronInherited (models.Model):
     _inherit='ir.cron'
 
-    is_date=fields.Boolean(string="Is Date", default=False)
+    is_date=fields.Boolean(string="Is Date", default=False, compute='compute_lastcall')
 
-    @api.onchange('lastcall')
-    def onchange_lastcall(self):
+    @api.depends('lastcall')
+    def compute_lastcall(self):
         if self.lastcall:
             self.is_date=True
+        else:
+            self.is_date=False
 
     
     #def _is_date(self):
