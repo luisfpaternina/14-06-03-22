@@ -14,8 +14,8 @@ class CronInherited (models.Model):
         'Fecha y hora',
         tracking=True,
         default= fields.Datetime().now())
-
     time = fields.Integer(string="Tiempo", compute=('_calculate_time'))
+    is_send_email=fields.Boolean(string="Is Send Email", default=False)
 
     @api.depends('write_date','lastcall')
     def _calculate_time(self):
