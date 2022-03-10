@@ -8,6 +8,7 @@ class CronInherited (models.Model):
     _inherit='ir.cron'
 
     is_date=fields.Boolean(string="Is Date", default=False)
+    lastcall=fields.Datetime(string="Last Call")
 
     @api.onchange('lastcall')
     def onchange_lastcall(self):
