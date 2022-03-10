@@ -10,20 +10,13 @@ class CronInherited (models.Model):
     is_date=fields.Boolean(string="Is Date", default=False)
     lastcall=fields.Datetime(string="Last Call")
 
-    @api.onchange('lastcall')
-    def onchange_lastcall(self):
-        if self.lastcall:
+    @api.depends('nextcall')
+    def _compute_nextcall(self):
+        now=datetime.datetime.now()
+        if self.nextcall == now:
             self.is_date=True
-
-    @api.onchange('nextcall')
-    def onchange_nextcall(self):
-        if self.nextcall:
-            self.is_date=True
-
-    
-    #def _is_date(self):
-    #    if(self.nextcall==datetime.date.today()):
-    #        is_date=True
+        else:
+            self.is_date=False
 
 
 
