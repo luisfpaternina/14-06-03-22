@@ -69,6 +69,30 @@
                         <field name="description" colspan="4" nolabel="1"/>
                     </page>
 
+                        <page string="Follow Up" >
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="Actions"/>
+                            <!-- <field name="activity_date_deadline"/>-->
+                            <!-- <field name="activity_summary"/>-->
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="Dates"/>
+                            <field name="create_date"/>
+                            <field name="date_closed" invisible="1"/>
+                            <field name="write_date"/>
+                        </group>
+
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="Root Causes"/>
+                            <field name="cause" colspan="2" nolabel="1"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="Resolution Actions"/>
+                            <field name="type_action"/>
+                            <field name="resolution" colspan="2" nolabel="1" placeholder="Action Description..."/>
+                        </group>
+                    </page>
+
             </xpath>
         </field>
     </record>
