@@ -46,12 +46,12 @@
                     <page>
                         <group>
                             <field name="domain_line_ids" widget="many2many_tags" invisible="1"/>
-                            <field name="line_ids" domain="[('id', 'in', domain_line_ids and domain_line_ids[0][2] or False)]" colspan="4" nolabel="1"/>
+                            <field name="line_ids"/>
                         </group>
                     </page>
                     <page string="Articles manufacturing">
                         <group>
-                                <field name="manufacturing_ids" colspan="4" nolabel="1"/>
+                                <field name="manufacturing_ids"/>
                         </group>
                     </page>
                 </notebook>
