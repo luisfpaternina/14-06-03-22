@@ -5,7 +5,12 @@ _logger = logging.getLogger(__name__)
 
 class CrmClaim(models.Model):
     _inherit = "crm.claim"
-
+ @api.model
+    def _default_warehouse_id(self):
+        company = self.env.user.company_id.id
+        warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
+        return warehouse_ids
+        
     reference = fields.Char(string="Ntra Reference", store=True)
     reference_client = fields.Char(string="Client Reference", store=True)
     solution = fields.Boolean('Solution')
