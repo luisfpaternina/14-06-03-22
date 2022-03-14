@@ -3,7 +3,7 @@
     <data>
         <record id="view_picking_form_claim_customization" model="ir.ui.view">
             <field name="name">stock.picking.claim.customization.form</field>
-            <field name="model">stock_picking</field>
+            <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
                 <notebook position="inside">
