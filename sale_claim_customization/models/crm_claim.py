@@ -20,12 +20,12 @@ class CrmClaim(models.Model):
     line_ids = fields.Many2many('claim.line', 'claim_line_rel', 'claim_id', 'line_id', string='Articles with problems')
     domain_line_ids = fields.Many2many('claim.line', 'claim_line_domain_rel', 'claim_id', 'line_id', string='Domain Articles')
     date = fields.Date(string='Claim Date', index=True, default=fields.Datetime.now)
-    pickup_id = fields.Many2one('pickup.order', string='Pickup Order')
+    pickup_id = fields.Many2one('pickup.order', string='Pickup Order',compute='_compute_pickup_id')
     state_pickup = fields.Selection([
     ('draft', 'Draft'),
     ('done', 'Done'),
     ('received', 'Received'),
-    ('cancel', 'Cancel')], string='State Pickup Order')
+    ('cancel', 'Cancel')], string='State Pickup Order',compute='_compute_pickup_id')
   
     # Fabricacion
     is_manufacturing = fields.Boolean('Manufacturing', default=False)
