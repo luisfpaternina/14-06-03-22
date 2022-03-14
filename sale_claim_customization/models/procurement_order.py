@@ -4,3 +4,5 @@ from odoo import fields, models
 
 class ProcurementOrder(models.Model):
     _inherit = 'procurement_order'
+
+    pickup_manufacturing_id = fields.Many2one('pickup.order.manufacturing', string='Pickup manufacturing')

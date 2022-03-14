@@ -27,6 +27,10 @@ class PickupOrder(models.Model):
         ('cancel', 'Cancel')], string='State',
         copy=False, default='draft')
 
+    # Inventario
+
+    picking_count = fields.Integer(string='Receptions', default=0)
+
 
 class PickupOrderLine(models.Model):
     _name = 'pickup_order.line'
