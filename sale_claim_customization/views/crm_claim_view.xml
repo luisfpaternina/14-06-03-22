@@ -39,7 +39,7 @@
                          </group>
                     </page>
                 </notebook>    
-                <notebook>
+                <notebook string="Articles with problems">
                     <page string="Articles with problems">
                         <attribute name="string">Prueba</attribute>
                         <group>
