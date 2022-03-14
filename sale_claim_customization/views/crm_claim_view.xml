@@ -23,9 +23,9 @@
                 </group>
             </xpath>
 
-            <xpath expr="//form[1]/sheet[1]/group[3]/notebook[1]" position="inside">
+            <xpath expr="//form[1]/sheet[1]/group[3]/notebook[1]" position="inside" string="Principal Page">
                 <notebook>
-                    <page string="Principal Page">
+                    <page>
                         <group>
                             <group>
                                 <field name="solution" string="solution"/>
