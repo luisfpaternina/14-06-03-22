@@ -33,6 +33,11 @@ class CrmClaim(models.Model):
                                    default=_default_warehouse_id)
     group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
 
+    def _compute_pickup_id(self):
+        pickup_id = self.env['pickup.order'].search([('claim_id', '=', self.id)], limit=1)
+        if pickup_id:
+            self.pickup_id = pickup_id.id
+            self.state_pickup = pickup_id.state
 
 class ClaimLine(models.Model):
     _name = 'claim.line'
