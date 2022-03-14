@@ -23,6 +23,22 @@
                     </group>
                 </group>
             </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[3]/notebook[1]" position="inside">
+                <notebook>
+                    <page string="Principal Page">
+                        <group>
+                            <group>
+                                <field name="partner_id" string="Partner"/>
+                                <field name="partner_phone"/>
+                                <field name="email_from" widget="email"/>
+                                <field name="motive"/>
+                            </group>
+                            
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
         </field>
     </record>
 
