@@ -15,7 +15,7 @@ class CrmClaim(models.Model):
     order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
     reference = fields.Char(string="Ntra Reference", store=True)
     reference_client = fields.Char(string="Client Reference", store=True)
-    motive = fields.Many2one(string='Incidence Cause')
+    motive = fields.Many2one(comodel_name='incidence.cause',string='Incidence Cause')
     solution = fields.Boolean('Solution')
     line_ids = fields.Many2many('claim.line', 'claim_line_rel', 'claim_id', 'line_id', string='Articles with problems')
     domain_line_ids = fields.Many2many('claim.line', 'claim_line_domain_rel', 'claim_id', 'line_id', string='Domain Articles')
