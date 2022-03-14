@@ -13,9 +13,9 @@
     'data': [
         #'security/ir.model.access.csv',
         #'data/pickup_order_data.xml',
-        'views/pickup_order_view.xml',
+        #'views/pickup_order_view.xml',
         'views/crm_claim_view.xml'
-        #'views/stock_view.xml',
+        'views/stock_view.xml',
         #'views/travel_sale_view.xml',
         #'wizard/assign_pickup_travel_wizard_view.xml',
         #'wizard/manufacturing_pickup_order_wizard_view.xml',

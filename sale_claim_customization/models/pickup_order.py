@@ -14,6 +14,7 @@ class PickupOrder(models.Model):
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
+    sale_order_id = fields.Many2one('sale.order', string='Sale order')
     type = fields.Selection([
         ('partial', 'Partial'),
         ('total', 'Total')], string='Type',
