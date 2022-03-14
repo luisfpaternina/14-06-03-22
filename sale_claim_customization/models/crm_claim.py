@@ -11,6 +11,7 @@ class CrmClaim(models.Model):
         company = self.env.user.company_id.id
         warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
         return warehouse_ids
+        
     order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
     reference = fields.Char(string="Ntra Reference", store=True)
     reference_client = fields.Char(string="Client Reference", store=True)
