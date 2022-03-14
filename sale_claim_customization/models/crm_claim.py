@@ -28,7 +28,7 @@ class CrmClaim(models.Model):
     ('cancel', 'Cancel')], string='State Pickup Order')
   
     # Fabricacion
-    manufacturing_ids = fields.One2many('pickup.order.manufacturing', 'claim_id', string="Manufactured")
+    manufacturing_ids = fields.One2many('pickup.order.manufacturing', string="Manufactured")
     is_manufacturing = fields.Boolean('Manufacturing', default=False)
     warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', required=True,
                                    default=_default_warehouse_id)
