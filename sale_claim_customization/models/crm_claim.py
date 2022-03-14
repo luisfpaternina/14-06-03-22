@@ -39,7 +39,7 @@ class CrmClaim(models.Model):
             self.pickup_id = pickup_id.id
             self.state_pickup = pickup_id.state
 
-        @api.onchange('order_id')
+    @api.onchange('order_id')
     def onchange_sale_order(self):
         if self.order_id:
             self.line_ids = [(5, 0, 0)]
