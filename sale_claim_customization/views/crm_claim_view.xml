@@ -38,6 +38,8 @@
                             </group>
                          </group>
                     </page>
+                </notebook>    
+                <notebook>
                     <page string="Articles with problems">
                         <group>
                                 <field name="solution"/>
