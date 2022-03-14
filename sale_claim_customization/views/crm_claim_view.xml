@@ -5,7 +5,7 @@
         <field name="model">crm.claim</field>
         <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
         <field name="arch" type="xml">
-            <<header position="inside">
+            <header position="inside">
                 <button name="generate_pickup_order" string="Generate Pickup Order" type="object"
                         attrs="{'invisible': ['|', ('solution','!=', True), ('pickup_id','!=', False)]}"/>
                 <button name="action_generate_manufacturing" string="Manufacturing" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('solution','!=', True), ('is_manufacturing', '=', True)]}"/>
