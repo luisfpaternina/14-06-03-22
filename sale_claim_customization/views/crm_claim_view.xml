@@ -31,8 +31,7 @@
                                 <field name="solution" string="solution"/>
                             </group>
                             <group>
-                                <field name="order_id" options="{'no_create_edit': True}"
-                                       domain="[('partner_id', '=', partner_id), ('state', '=', 'sale'), ('travel_id.state', '=', 'delivered')]"/> 
+                                <field name="order_id" options="{'no_create_edit': True}"/> 
                                 <field name="reference" readonly="1"/>
                                 <field name="reference_client" readonly="1"/>
                                 <field name="solution"/>
