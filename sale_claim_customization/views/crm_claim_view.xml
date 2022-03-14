@@ -34,7 +34,7 @@
                                 <field name="reference" readonly="1"/>
                                 <field name="reference_client" readonly="1"/>
                                 <field name="solution"/>
-                                <field name="state_pickup" attrs="{'invisible': [('pickup_id','=', False)]}" readonly="1"/> 
+                                <field name="state_pickup"/> 
                             </group>
                          </group>
                     </page>
