@@ -6,11 +6,11 @@
         <field name="model">crm.claim</field>
         <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
         <field name="arch" type="xml">
-            <header position="inside">
+            <!--<header position="inside">
                 <button name="generate_pickup_order" string="Generate Pickup Order" type="object"
                         attrs="{'invisible': ['|', ('solution','!=', True), ('pickup_id','!=', False)]}"/>
                 <button name="action_generate_manufacturing" string="Manufacturing" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('solution','!=', True), ('is_manufacturing', '=', True)]}"/>
-            </header>
+            </header>-->
             <xpath expr="//group[1]" position="replace">
                 <group>
                     <group>
@@ -23,6 +23,7 @@
                     </group>
                 </group>
             </xpath>
+            <!--
             <xpath expr="//notebook[1]" position="replace">
                 <notebook>
                     <page string="Principal Page">
@@ -35,7 +36,7 @@
                             </group>
                             <group>
                                 <field name="order_id" options="{'no_create_edit': True}"
-                                       domain="[('partner_id', '=', partner_id), ('state', '=', 'sale'), ('travel_id.state', '=', 'delivered')]"/> <!--('travel_id.state', 'in', ('delivered', 'completed'))-->
+                                       domain="[('partner_id', '=', partner_id), ('state', '=', 'sale'), ('travel_id.state', '=', 'delivered')]"/> ('travel_id.state', 'in', ('delivered', 'completed'))
                                 <field name="reference" readonly="1"/>
                                 <field name="reference_client" readonly="1"/>
                                 <field name="solution"/>
@@ -93,7 +94,7 @@
                         </group>
                     </page>
                 </notebook>
-            </xpath>
+            </xpath>-->
 
 
         </field>
