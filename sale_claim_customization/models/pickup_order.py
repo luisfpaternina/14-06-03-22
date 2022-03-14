@@ -11,11 +11,23 @@ class PickupOrder(models.Model):
     _name = 'pickup_order'
     _description = 'Pickup Orders'
 
+    name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
+    emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
+    expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
+
+
+
 
 class PickupOrderLine(models.Model):
     _name = 'pickup_order.line'
 
-   
+    label = fields.Char('Label', required=True)
+    length = fields.Float(readonly="1")
+    height = fields.Float(readonly="1")
+    width = fields.Float(readonly="1")
+
+
+
 
 class PickupOrderManufacturing(models.Model):
     _name = 'pickup_order.manufacturing'
