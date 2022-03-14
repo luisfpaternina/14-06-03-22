@@ -20,7 +20,7 @@ class PickupOrder(models.Model):
         copy=False, default='total')
     make_payment = fields.Boolean('Make Payment', default=False)
     amount = fields.Float("Amount", default=0.0)
-        state = fields.Selection([
+    state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
         ('received', 'Received'),
