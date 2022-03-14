@@ -32,3 +32,11 @@ class PickupOrderLine(models.Model):
 class PickupOrderManufacturing(models.Model):
     _name = 'pickup_order.manufacturing'
 
+    product_id = fields.Many2one('product.product', string='Product', required=False) 
+    label = fields.Char('Label', required=True)
+    product_qty = fields.Float(string='Quantity', digits='Product Unit of Measure',
+                               default=1.0)
+    length = fields.Float(related='product_id.length', readonly="1")
+    height = fields.Float(related='product_id.height', readonly="1")
+    width = fields.Float(related='product_id.width', readonly="1")
+    state_production = fields.Selection(related='production_id.state', readonly="1")
