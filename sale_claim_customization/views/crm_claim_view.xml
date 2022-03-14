@@ -38,6 +38,16 @@
                             </group>
                          </group>
                     </page>
+                    <page string="Articles with problems">
+                        <group>
+                                <field name="solution"/>
+                        </group>
+                    </page>
+                    <page string="Articles manufacturing">
+                        <group>
+                                <field name="solution"/>
+                        </group>
+                    </page>
                 </notebook>
             </xpath>
         </field>
