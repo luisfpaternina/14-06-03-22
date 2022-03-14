@@ -64,11 +64,37 @@ class CrmClaim(models.Model):
         else:
             self.line_ids = [(5, 0, 0)]
 
+    def generate_pickup_order(self):
+        for rec in self:
+            vals = {'partner_id': rec.partner_id.id,
+                     'sale_order_id': rec.order_id.id,
+                     'emission_date': rec.date,
+                     'claim_id': rec.id,
+                     'type': 'total',
+                     'line_ids': [(0, 0, {'product_id': line.product_id.id,
+                                    'label': line.label,
+                                    'length': line.length,
+                                    'height': line.height,
+                                    'width': line.width}) for
+                            line in rec.line_ids],
+                             }
+            if rec.line_ids != rec.domain_line_ids:
+                vals['type'] = 'partial'
+            order = self.env['pickup.order'].create(vals)
+        view = (self.env.ref('sale_claim_customization.pickup_order_form').id, 'form')
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'pickup.order',
+            'views': [view],
+            'res_id': order.id,
+        }
 
     def _prepare_procurement_group(self):
         return {'name': self.code}
 
-        def action_manufacturing(self):
+    def action_manufacturing(self):
         for rec in self:
             rec.manufacturing_ids._action_procurement_create()
             for line in self.manufacturing_ids:
