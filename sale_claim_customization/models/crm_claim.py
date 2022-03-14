@@ -80,7 +80,7 @@ class CrmClaim(models.Model):
                              }
             if rec.line_ids != rec.domain_line_ids:
                 vals['type'] = 'partial'
-            order = self.env['pickup.order'].create(vals)
+           # order = self.env['pickup.order'].create(vals)
         view = (self.env.ref('sale_claim_customization.pickup_order_form').id, 'form')
         return {
             'type': 'ir.actions.act_window',
