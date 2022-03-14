@@ -25,6 +25,13 @@ class CrmClaim(models.Model):
     ('received', 'Received'),
     ('cancel', 'Cancel')], string='State Pickup Order')
   
+    # Fabricacion
+    is_manufacturing = fields.Boolean('Manufacturing', default=False)
+    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse', required=True,
+                                   default=_default_warehouse_id)
+    group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
+
+
 class ClaimLine(models.Model):
     _name = 'claim.line'
 
