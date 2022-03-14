@@ -23,15 +23,14 @@
                 </group>
             </xpath>
 
-            <xpath expr="//notebook[1]" position="replace">
+            <xpath expr="//form[1]/sheet[1]/group[3]/notebook[1]" position="inside">
                 <notebook>
                     <page string="Principal Page">
                         <group>
                             <group>
-                                <field name="solution" string="Solucion"/>
+                                <field name="solution" string="solution"/>
                             </group>
-                            
-                        </group>
+                         </group>
                     </page>
                 </notebook>
             </xpath>
