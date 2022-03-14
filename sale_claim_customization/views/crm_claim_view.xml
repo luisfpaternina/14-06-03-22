@@ -37,7 +37,7 @@
                                 <field name="solution"/>
                                 <field name="pickup_id" attrs="{'invisible': [('pickup_id','=', False)]}" readonly="1"/>
                                 <field name="state_pickup"/>
-                                <field name="is_manufacturing" invisible="1"/> 
+                                <field name="is_manufacturing" invisible="0"/> 
                             </group>
                          </group>
                     </page>
