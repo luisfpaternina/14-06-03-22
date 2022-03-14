@@ -3,7 +3,7 @@
     <data>
         <record id="pickup_order_tree" model="ir.ui.view">
             <field name="name">pickup.order.tree</field>
-            <field name="model">pickup.order</field>
+            <field name="model">pickup_order</field>
             <field name="arch" type="xml">
                 <tree string="Pickup orders" decoration-muted="state=='done'">
                     <field name="name"/>
