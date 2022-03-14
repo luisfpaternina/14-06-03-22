@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <record model="ir.ui.view" id="sale_claims_form_view"
-    >
+    <record model="ir.ui.view" id="sale_claims_form_view">
         <field name="name">CRM - Claims Form</field>
         <field name="model">crm.claim</field>
         <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
