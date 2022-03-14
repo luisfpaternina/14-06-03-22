@@ -49,7 +49,7 @@
                         <group>
                             <group>
                                 <field name="label" readonly="1"/>
-                                <field name="product_id" readonly="1"/>
+                                <!--<field name="product_id" readonly="1"/>-->
                             </group>
                             <group>
                                 <field name="length" readonly="1"/>
