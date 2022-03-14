@@ -13,7 +13,7 @@
             <xpath expr="//group[1]" position="replace">
                 <group>
                     <group>
-                        <field name="code"/>
+                        <!--<field name="code"/>-->
                         <field name="name"/>
                     </group>
                     <group>
