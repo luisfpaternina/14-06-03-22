@@ -50,7 +50,7 @@
                     </page>
                     <page string="Articles manufacturing">
                         <group>
-                            <field name="manufacturing_ids"/>
+                                <field name="solution"/>
                         </group>
                     </page>
                 </notebook>
