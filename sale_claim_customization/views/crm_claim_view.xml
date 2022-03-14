@@ -45,12 +45,12 @@
                 <notebook string="Articles with problems">
                     <page>
                         <group>
-                            <field name="domain_line_ids" widget="many2many_tags" invisible="1"/>
+                            <field name="solution"/>
                         </group>
                     </page>
                     <page string="Articles manufacturing">
                         <group>
-                                <field name="solution"/>
+                            <field name="solution"/>
                         </group>
                     </page>
                 </notebook>
