@@ -94,6 +94,36 @@ class CrmClaim(models.Model):
     def _prepare_procurement_group(self):
         return {'name': self.code}
 
+        def action_manufacturing(self):
+        for rec in self:
+            rec.manufacturing_ids._action_procurement_create()
+            for line in self.manufacturing_ids:
+                if line.production_id:
+                    copy_label = True
+                    type_label = line.semifinished_id and 'semifinished' or 'package'
+                    label = line.semifinished_id and line.semifinished_id.id or (
+                                line.package_id and line.package_id.id or False)
+                    line.production_id.with_context(copy_label=copy_label, type_label=type_label,
+                                                    label=label).button_plan()
+            rec.is_manufacturing = True
+        return True
+
+    def action_generate_manufacturing(self):
+        # self.state = 'manufacturing'
+        self.ensure_one()
+        if self.order_id:
+            ctx = self._context.copy()
+            ctx.update({
+                'claim_id': self.id,
+                'order_id': self.order_id.id
+            })
+            action_rec = self.env['ir.model.data'].xmlid_to_object(
+                'sale_claim_customization.action_manufacturing_pickup_order_wizard_form')
+            action = action_rec.read([])[0]
+            action['context'] = ctx
+            return action
+        return True
+
 
 class ClaimLine(models.Model):
     _name = 'claim.line'
