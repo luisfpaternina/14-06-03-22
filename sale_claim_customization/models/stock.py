@@ -7,4 +7,4 @@ class StockPicking(models.Model):
     _inherit = 'stock_picking'
 
 
-    pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
+    #pickup_order_id = fields.Many2one('pickup.order', string="Pickup Orders", readonly=True, copy=False)
