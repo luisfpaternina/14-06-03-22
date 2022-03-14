@@ -15,6 +15,7 @@ class CrmClaim(models.Model):
     order_id = fields.Many2one(comodel_name='sale.order', string='Sales Order')
     reference = fields.Char(string="Ntra Reference", store=True)
     reference_client = fields.Char(string="Client Reference", store=True)
+    motive = fields.Many2one(string='Incidence Cause')
     solution = fields.Boolean('Solution')
     date = fields.Date(string='Claim Date', index=True, default=fields.Datetime.now)
     pickup_id = fields.Many2one('pickup.order', string='Pickup Order')
