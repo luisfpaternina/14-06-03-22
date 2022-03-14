@@ -14,8 +14,12 @@ class PickupOrder(models.Model):
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
-
-
+    type = fields.Selection([
+        ('partial', 'Partial'),
+        ('total', 'Total')], string='Type',
+        copy=False, default='total')
+    make_payment = fields.Boolean('Make Payment', default=False)
+    amount = fields.Float("Amount", default=0.0)
 
 
 class PickupOrderLine(models.Model):
