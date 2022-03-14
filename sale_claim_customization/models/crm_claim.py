@@ -39,6 +39,31 @@ class CrmClaim(models.Model):
             self.pickup_id = pickup_id.id
             self.state_pickup = pickup_id.state
 
+        @api.onchange('order_id')
+    def onchange_sale_order(self):
+        if self.order_id:
+            self.line_ids = [(5, 0, 0)]
+            line_ids = self.env['claim.line']
+
+            semifinished_label = self.env['semifinished.product.label'].search(
+                [('sale_id', '=', self.order_id.id)])
+            for label in semifinished_label:
+                line_ids += self.env['claim.line'].create({
+                    'semifinished_id': label.id,
+                    'label': label.code,
+                    'product_id': label.product_id.id
+                })
+            package_label = self.env['package.product.label'].search([('sale_id', '=', self.order_id.id)])
+            for label in package_label:
+                line_ids += self.env['claim.line'].create({
+                    'package_id': label.id,
+                    'label': label.code,
+                    'product_id': label.product_id.id
+                })
+            self.domain_line_ids = line_ids
+        else:
+            self.line_ids = [(5, 0, 0)]
+
 class ClaimLine(models.Model):
     _name = 'claim.line'
 
