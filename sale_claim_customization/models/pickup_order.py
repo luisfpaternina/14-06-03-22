@@ -39,4 +39,4 @@ class PickupOrderManufacturing(models.Model):
     length = fields.Float(readonly="1")
     height = fields.Float(readonly="1")
     width = fields.Float(readonly="1")
-    state_production = fields.Selection(readonly="1")
+    
