@@ -21,12 +21,12 @@
             <field name="model">pickup.order</field>
             <field name="arch" type="xml">
                 <form string="Pickup order">
-                    <header>
+                   <!-- <header>
                         <button name="action_done" string="Done" states="draft" type="object" class="oe_highlight"/>
                         <button name="action_assign_travel" states="done" string="Assign travel" type="object"
                             attrs="{'invisible': ['|', ('travel_id', '!=', False)]}"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,done,received,cancel"/>
-                    </header>
+                    </header>-->
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button type="object"
