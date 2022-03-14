@@ -41,6 +41,7 @@
                 </notebook>    
                 <notebook>
                     <page string="Articles with problems">
+                        <attribute name="string">Prueba</attribute>
                         <group>
                                 <field name="solution"/>
                         </group>
