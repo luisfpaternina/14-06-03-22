@@ -17,6 +17,15 @@ class PickupOrder(models.Model):
             order.picking_ids = pickings
             order.picking_count = len(pickings)
 
+    @api.model
+    def _default_picking_type(self):
+        type_obj = self.env['stock.picking.type']
+        company_id = self.env.context.get('company_id') or self.env.user.company_id.id
+        types = type_obj.search([('code', '=', 'incoming'), ('warehouse_id.company_id', '=', company_id)])
+        if not types:
+            types = type_obj.search([('code', '=', 'incoming'), ('warehouse_id', '=', False)])
+        return types[:1]
+
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
