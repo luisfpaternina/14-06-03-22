@@ -2,12 +2,17 @@
 # Copyright 2017 Tecnativa - Vicent Cubells
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import fields, models
+from odoo import fields, models, api, _
 
 
 class CrmClaimCategory(models.Model):
     _name = "crm.claim.category"
     _description = "Category of claim"
 
-    name = fields.Char(string="Name", required=True, translate=True)
-    team_id = fields.Many2one(comodel_name="crm.team", string="Sales Team")
+    name = fields.Char(
+        string="Name",
+        required=True,
+        translate=True)
+    team_id = fields.Many2one(
+        comodel_name="crm.team",
+        string="Sales Team")
