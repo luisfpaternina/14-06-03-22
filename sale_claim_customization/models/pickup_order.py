@@ -41,7 +41,6 @@ class PickupOrder(models.Model):
     line_ids = fields.Many2many('pickup.order.line', 'pickup_line_rel', 'pickup_id', 'line_id', string='Articles with problems')
     domain_line_ids = fields.Many2many('pickup.order.line', 'pickup_line_domain_rel', 'pickup_id', 'line_id', string='Domain Articles')
     route_id = fields.Many2one(related='partner_id.route_id', string='Router')
-
     type = fields.Selection([
         ('partial', 'Partial'),
         ('total', 'Total')], string='Type',
@@ -57,7 +56,12 @@ class PickupOrder(models.Model):
     claim_id = fields.Many2one('crm.claim', string='Claim')
 
     # Inventario
-
+    company_id = fields.Many2one('res.company', 'Company',
+        required=True,
+        index=True,
+        states={'done': [('readonly', True)],'received': [('readonly', True)],'cancel': [('readonly', True)]},
+        default=lambda 
+        self: self.env.user.company_id.id)
     picking_count = fields.Integer(string='Receptions', default=0)
 
 
