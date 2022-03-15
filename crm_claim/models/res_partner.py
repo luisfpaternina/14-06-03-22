@@ -12,7 +12,10 @@ class ResPartner(models.Model):
         inverse_name="partner_id")
 
 
-    @api.depends("claim_ids", "child_ids", "child_ids.claim_ids")
+    @api.depends(
+        "claim_ids",
+        "child_ids",
+        "child_ids.claim_ids")
     def _compute_claim_count(self):
         partners = self | self.mapped("child_ids")
         partner_data = self.env["crm.claim"].read_group(
