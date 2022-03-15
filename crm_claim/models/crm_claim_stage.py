@@ -2,7 +2,7 @@
 # Copyright 2017 Tecnativa - Vicent Cubells
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import fields, models
+from odoo import fields, models, api, _
 
 
 class CrmClaimStage(models.Model):
@@ -16,8 +16,13 @@ class CrmClaimStage(models.Model):
     _description = "Claim stages"
     _order = "sequence"
 
-    name = fields.Char(string="Stage Name", required=True, translate=True)
-    sequence = fields.Integer(default=1, help="Used to order stages. Lower is better.")
+    name = fields.Char(
+        string="Stage Name",
+        required=True,
+        translate=True)
+    sequence = fields.Integer(
+        default=1,
+        help="Used to order stages. Lower is better.")
     team_ids = fields.Many2many(
         comodel_name="crm.team",
         relation="crm_team_claim_stage_rel",
@@ -25,11 +30,9 @@ class CrmClaimStage(models.Model):
         column2="team_id",
         string="Teams",
         help="Link between stages and sales teams. When set, this limitate "
-        "the current stage to the selected sales teams.",
-    )
+        "the current stage to the selected sales teams.",)
     case_default = fields.Boolean(
         string="Common to All Teams",
         help="If you check this field, this stage will be proposed by default "
         "on each sales team. It will not assign this stage to existing "
-        "teams.",
-    )
+        "teams.",)
