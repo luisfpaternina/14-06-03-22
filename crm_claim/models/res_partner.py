@@ -2,14 +2,19 @@
 # Copyright 2017 Tecnativa - Vicent Cubells
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    claim_count = fields.Integer(string="# Claims", compute="_compute_claim_count")
-    claim_ids = fields.One2many(comodel_name="crm.claim", inverse_name="partner_id")
+    claim_count = fields.Integer(
+        string="# Claims",
+        compute="_compute_claim_count")
+    claim_ids = fields.One2many(
+        comodel_name="crm.claim",
+        inverse_name="partner_id")
+
 
     @api.depends("claim_ids", "child_ids", "child_ids.claim_ids")
     def _compute_claim_count(self):
