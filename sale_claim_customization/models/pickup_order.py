@@ -25,7 +25,13 @@ class PickupOrder(models.Model):
         if not types:
             types = type_obj.search([('code', '=', 'incoming'), ('warehouse_id', '=', False)])
         return types[:1]
-
+    
+    @api.model
+    def _default_warehouse_id(self):
+        company = self.env.user.company_id.id
+        warehouse_ids = self.env['stock.warehouse'].search([('company_id', '=', company)], limit=1)
+        return warehouse_ids
+    
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
