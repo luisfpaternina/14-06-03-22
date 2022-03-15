@@ -57,7 +57,7 @@
 
                         <notebook>
                             <page string="Articles with problems">
-                                <field name="domain_line_ids" widget="many2many_tags" invisible="1"/>
+                                <field name="domain_line_ids" widget="many2many_tags" invisible="0"/>
                             </page>
                             <page string="Others Information">
                                 <group string="Shipping Information" name="pickup_shipping">
