@@ -11,6 +11,12 @@ class PickupOrder(models.Model):
     _name = 'pickup_order'
     _description = 'Pickup Orders'
 
+    def _compute_picking(self):
+        for order in self:
+            pickings = self.env['stock.picking'].search([('pickup_order_id', '=', order.id)])
+            order.picking_ids = pickings
+            order.picking_count = len(pickings)
+
     name = fields.Char('Name', required=True, default=_('Draft Pickup Order'))
     emission_date = fields.Date(string='Emission Date', required=True, default=fields.Date.context_today)
     expected_date = fields.Date(string='Expected date', default=fields.Date.context_today)
