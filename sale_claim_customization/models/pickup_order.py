@@ -40,7 +40,7 @@ class PickupOrder(models.Model):
     # estos son lo que debes hacer igual un campo para relacionar y uno para el domain
     line_ids = fields.Many2many('pickup.order.line', 'pickup_line_rel', 'pickup_id', 'line_id', string='Articles with problems')
     domain_line_ids = fields.Many2many('pickup.order.line', 'pickup_line_domain_rel', 'pickup_id', 'line_id', string='Domain Articles')
-    
+    route_id = fields.Many2one(related='partner_id.route_id', string='Router')
 
     type = fields.Selection([
         ('partial', 'Partial'),
