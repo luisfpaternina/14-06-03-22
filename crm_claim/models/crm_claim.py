@@ -40,68 +40,82 @@ class CrmClaim(models.Model):
             (x, _(self.env[x]._description)) for x in APPLICABLE_MODELS if x in self.env
         ]
 
-    name = fields.Char(string="Claim Subject", required=True)
-    active = fields.Boolean(default=True)
+    name = fields.Char(
+        string="Claim Subject",
+        required=True)
+    active = fields.Boolean(
+        default=True)
     description = fields.Text()
     resolution = fields.Text()
-    create_date = fields.Datetime(string="Creation Date", readonly=True)
-    write_date = fields.Datetime(string="Update Date", readonly=True)
-    date_deadline = fields.Date(string="Deadline")
-    date_closed = fields.Datetime(string="Closed", readonly=True)
-    date = fields.Datetime(string="Claim Date", index=True, default=fields.Datetime.now)
+    create_date = fields.Datetime(
+        string="Creation Date",
+        readonly=True)
+    write_date = fields.Datetime(
+        string="Update Date",
+        readonly=True)
+    date_deadline = fields.Date(
+        string="Deadline")
+    date_closed = fields.Datetime(
+        string="Closed",
+        readonly=True)
+    date = fields.Datetime(
+        string="Claim Date",
+        index=True,
+        default=fields.Datetime.now)
     model_ref_id = fields.Reference(
-        selection="_selection_model", string="Model Reference"
-    )
-    categ_id = fields.Many2one(comodel_name="crm.claim.category", string="Category")
+        selection="_selection_model",
+        string="Model Reference")
+    categ_id = fields.Many2one(
+        comodel_name="crm.claim.category",
+        string="Category")
     priority = fields.Selection(
-        selection=[("0", "Low"), ("1", "Normal"), ("2", "High")], default="1"
-    )
+        selection=[("0", "Low"), ("1", "Normal"), ("2", "High")], default="1")
     type_action = fields.Selection(
         selection=[
             ("correction", "Corrective Action"),
             ("prevention", "Preventive Action"),
         ],
-        string="Action Type",
-    )
+        string="Action Type",)
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Responsible",
         track_visibility="always",
-        default=lambda self: self.env.user,
-    )
-    user_fault = fields.Char(string="Trouble Responsible")
+        default=lambda self: self.env.user,)
+    user_fault = fields.Char(
+        string="Trouble Responsible")
     team_id = fields.Many2one(
         comodel_name="crm.team",
         string="Sales Team",
         index=True,
         default=_get_default_team,
         help="Responsible sales team. Define Responsible user and Email "
-        "account for mail gateway.",
-    )
+        "account for mail gateway.",)
     company_id = fields.Many2one(
         comodel_name="res.company",
         string="Company",
-        default=lambda self: self.env.company,
-    )
-    partner_id = fields.Many2one(comodel_name="res.partner", string="Partner")
+        default=lambda self: self.env.company,)
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Partner")
     email_cc = fields.Text(
         string="Watchers Emails",
         help="These email addresses will be added to the CC field of all "
         "inbound and outbound emails for this record before being sent. "
-        "Separate multiple email addresses with a comma",
-    )
+        "Separate multiple email addresses with a comma",)
     email_from = fields.Char(
-        string="Email", help="Destination email for email gateway."
-    )
-    partner_phone = fields.Char(string="Phone")
+        string="Email",
+        help="Destination email for email gateway.")
+    partner_phone = fields.Char(
+        string="Phone")
     stage_id = fields.Many2one(
         comodel_name="crm.claim.stage",
         string="Stage",
         track_visibility="onchange",
         default=_get_default_stage_id,
-        domain="['|', ('team_ids', '=', team_id), ('case_default', '=', True)]",
-    )
-    cause = fields.Text(string="Root Cause")
+        domain="['|', ('team_ids', '=', team_id), ('case_default', '=', True)]",)
+    cause = fields.Text(
+        string="Root Cause")
+
 
     def stage_find(self, team_id, domain=None, order="sequence"):
         """ Override of the base.stage method
