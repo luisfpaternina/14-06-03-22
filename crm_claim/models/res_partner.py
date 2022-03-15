@@ -10,7 +10,9 @@ class ResPartner(models.Model):
     claim_ids = fields.One2many(
         comodel_name="crm.claim",
         inverse_name="partner_id")
-
+    route_id = fields.Many2one(
+        "mrp_route",
+        string='Router')
 
     @api.depends(
         "claim_ids",
