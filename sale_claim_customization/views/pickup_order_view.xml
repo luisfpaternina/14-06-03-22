@@ -17,7 +17,7 @@
 
         <record id="pickup_order_form" model="ir.ui.view">
             <field name="name">pickup.order.form</field>
-            <field name="model">pickup.order</field>
+            <field name="model">pickup_order</field>
             <field name="arch" type="xml">
                 <form string="Pickup order">
                    <!-- <header>
