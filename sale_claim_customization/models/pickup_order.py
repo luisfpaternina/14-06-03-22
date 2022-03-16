@@ -113,10 +113,16 @@ class PickupOrderLine(models.Model):
 class PickupOrderManufacturing(models.Model):
     _name = 'pickup_order.manufacturing'
 
-    product_id = fields.Many2one('product.product', string='Product', required=False) 
+    claim_id = fields.Many2one('crm.claim', string='Claim', ondelete='cascade')
+    semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
+    package_id = fields.Many2one('package.product.label', string='Package', required=False)
     label = fields.Char('Label', required=True)
-    product_qty = fields.Float(string='Quantity', digits='Product Unit of Measure',
-                               default=1.0)
+    product_id = fields.Many2one('product.product', string='Product', required=False) 
+    product_qty = fields.Float(string='Quantity', digits='Product Unit of Measure',default=1.0)
+    product_uom_id = fields.Many2one('product.uom', 'Product Unit of Measure')
     length = fields.Float(readonly="1")
     height = fields.Float(readonly="1")
     width = fields.Float(readonly="1")
+    production_id = fields.Many2one('mrp.production', string='Production', compute='_compute_production_id')
+    state_production = fields.Selection(related='production_id.state', readonly="1")
+
