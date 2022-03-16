@@ -99,7 +99,9 @@ class PickupOrderLine(models.Model):
     _name = 'pickup_order.line'
 
     semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
+    package_id = fields.Many2one('package.product.label', string='Package', required=False)
     label = fields.Char('Label', required=True)
+    product_id = fields.Many2one('product.product', string='Product', required=False)
     length = fields.Float(readonly="1")
     height = fields.Float(readonly="1")
     width = fields.Float(readonly="1")
