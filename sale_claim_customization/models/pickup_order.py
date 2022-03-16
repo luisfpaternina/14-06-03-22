@@ -124,5 +124,4 @@ class PickupOrderManufacturing(models.Model):
     height = fields.Float(readonly="1")
     width = fields.Float(readonly="1")
     production_id = fields.Many2one('mrp.production', string='Production', compute='_compute_production_id')
-    state_production = fields.Selection(related='production_id.state', readonly="1")
 
