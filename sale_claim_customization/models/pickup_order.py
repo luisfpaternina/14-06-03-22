@@ -62,18 +62,33 @@ class PickupOrder(models.Model):
         states={'done': [('readonly', True)],'received': [('readonly', True)],'cancel': [('readonly', True)]},
         default=lambda 
         self: self.env.user.company_id.id)
-    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse',required=True, readonly=True,
-                                   states={'done': [('readonly', True)],
-                                           'received': [('readonly', True)],'cancel': [('readonly', True)]},
-                                   default=_default_warehouse_id)
-    picking_count = fields.Integer(compute='_compute_picking', string='Receptions', default=0)
-    picking_ids = fields.Many2many('stock.picking', compute='_compute_picking', string='Receptions', copy=False)
-    picking_type_id = fields.Many2one('stock.picking.type', 'Deliver To', states={'done': [('readonly', True)],
-                                                                                  'received': [('readonly', True)],
-                                                                                  'cancel': [('readonly', True)]}, required=True,
-                                      default=_default_picking_type,
-                                      help="This will determine picking type of incoming shipment")
-    group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
+    warehouse_id = fields.Many2one('stock.warehouse', 
+        string='Warehouse',
+        required=True, 
+        readonly=True,
+        states={'done': [('readonly', True)],'received': [('readonly', True)],'cancel': [('readonly', True)]},
+        default=_default_warehouse_id)
+    picking_count = fields.Integer(compute='_compute_picking',
+        string='Receptions',
+        default=0)
+    picking_ids = fields.Many2many('stock.picking',
+        compute='_compute_picking',
+        string='Receptions',
+        copy=False)
+    picking_type_id = fields.Many2one('stock.picking.type', 'Deliver To',
+        states={'done': [('readonly', True)],'received': [('readonly', True)],'cancel': [('readonly', True)]}, 
+        required=True,
+        default=_default_picking_type,
+        help="This will determine picking type of incoming shipment")
+    group_id = fields.Many2one('procurement.group', 
+        string="Procurement Group", 
+        copy=False)
+
+    #Viaje
+    travel_id = fields.Many2one('travel.sale', 
+        string='Travel', 
+        copy=False)
+
 
 
 class PickupOrderLine(models.Model):
