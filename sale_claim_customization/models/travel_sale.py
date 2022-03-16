@@ -8,7 +8,4 @@ _logger = logging.getLogger(__name__)
 class TravelSale(models.Model):
     _inherit = 'travel_sale'
 
-
-        travel_id = fields.Many2one('travel_sale', 
-        string='Travel', 
-        copy=False)
+    travel_id = fields.Many2one('travel_sale', string='Travel', copy=False)
