@@ -89,11 +89,16 @@ class PickupOrder(models.Model):
         string='Travel', 
         copy=False)
 
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        if self.partner_id:
+            self.sale_order_id = False
 
 
 class PickupOrderLine(models.Model):
     _name = 'pickup_order.line'
 
+    semifinished_id = fields.Many2one('semifinished.product.label', string='Semifinished', required=False)
     label = fields.Char('Label', required=True)
     length = fields.Float(readonly="1")
     height = fields.Float(readonly="1")
