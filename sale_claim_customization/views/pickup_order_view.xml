@@ -5,13 +5,12 @@
             <field name="name">pickup.order.tree</field>
             <field name="model">pickup_order</field>
             <field name="arch" type="xml">
-                <tree string="Pickup orders" decoration-muted="state=='done'">
+                <tree string="Pickup orders">
                     <field name="name"/>
                     <field name="partner_id"/>
                     <field name="sale_order_id"/>
                     <field name="expected_date"/>
                     <field name="type"/>
-                    
                 </tree>
             </field>
         </record>
@@ -27,48 +26,6 @@
                             attrs="{'invisible': ['|', ('travel_id', '!=', False)]}"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,done,received,cancel"/>
                     </header>-->
-                    <sheet>
-                        <div class="oe_button_box" name="button_box">
-                            <button type="object"
-                                name="action_view_picking"
-                                class="oe_stat_button"
-                                icon="fa-truck" attrs="{'invisible':[('state', '=', 'draft'),('picking_ids','=',[])]}">
-                                <field name="picking_count" widget="statinfo" string="Shipment" help="Incoming Shipments"/>
-                                <field name="picking_ids" invisible="1"/>
-                            </button>
-                        </div>
-                        <group>
-                            <group>
-                                <field name="name" attrs="{'invisible': [('state','=', 'draft')], 'readonly': [('state','!=', 'draft')]}"/>
-                                <field name="emission_date"/>
-                                <field name="expected_date"/>
-                                <field name="make_payment"/>
-                                <field name="amount" attrs="{'invisible': [('make_payment','=', False)], 'required': [('make_payment','=', True)]}"/>
-                            </group>
-                            <group>
-                                <field name="partner_id"/>
-                                <field name="sale_order_id" options="{'no_create_edit': True}"
-                                       domain="[('partner_id', '=', partner_id), ('state', '=', 'sale'), ('travel_id.state', '=', 'delivered')]"/> <!--('travel_id.state', 'in', ('delivered', 'completed'))-->
-                                <field name="claim_id" readonly="1"/>
-                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
-                                <field name="type"/>
-                            </group>
-                        </group>
-
-                        <notebook>
-                            <page string="Articles with problems">
-                                <field name="domain_line_ids" widget="many2many_tags" invisible="0"/>
-                            </page>
-                            <page string="Others Information">
-                                <group string="Shipping Information" name="pickup_shipping">
-                                    <field name="warehouse_id" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
-                                    <field name="picking_type_id" options="{'no_create': True}" groups="stock.group_stock_multi_locations"/>
-                                    <field name="travel_id" readonly="True"/>
-                                    <field name="group_id" readonly="True"/>
-                                </group>
-                            </page>
-                        </notebook>
-                    </sheet>
                 </form>
             </field>
         </record>
