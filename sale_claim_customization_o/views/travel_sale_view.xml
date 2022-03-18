@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_travel_sale_form_customization_inherit" model="ir.ui.view">
+            <field name="name">travel.sale.form.customization.inherit</field>
+            <field name="model">travel.sale</field>
+            <field name="inherit_id" ref="manage_travel.travel_sale_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Pickup Orders">
+                        <field name="pickup_ids" colspan="4" readonly="1"/>
+                    </page>
+                    <page string="Articles with problems">
+                        <field name="line_pickup_order_ids" colspan="4" readonly="1"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

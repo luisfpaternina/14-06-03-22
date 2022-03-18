@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="assign_pickup_travel_wizard_form" model="ir.ui.view">
+            <field name="name">assign.pickup.travel.wizard.form</field>
+            <field name="model">assign.pickup.travel.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Assign travel">
+                    <group>
+                        <group>
+                            <field name="travel_id" required="1" domain="[('id', 'in', travel_domain_ids and travel_domain_ids[0][2] or False)]"
+                            context="{'default_date_up': date_up, 'default_assignable_volume': 0.0, 'default_route_ids': route_ids}"/>
+                            <field name="travel_domain_ids" widget="many2many_tags" options="{'no_create_edit': True}" invisible="1"/>
+                            <field name="date_up" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="pickup_ids" widget="many2many_tags" readonly="1" options="{'no_create_edit': True}"/>
+                            <field name="route_ids" widget="many2many_tags" readonly="1" options="{'no_create_edit': True}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="confirm"
+                                string="Confirm"
+                                type="object"
+                                class="oe_highlight" />
+                        o
+                        <button string="Close" special="cancel" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_assign_pickup_travel_wizard_form"
+                    name="Assign travel"
+                    res_model="assign.pickup.travel.wizard"
+                    view_mode="form"
+                    view_type="form"
+                    view_id="assign_pickup_travel_wizard_form"
+                    target="new" />
+
+    </data>
+</odoo>
