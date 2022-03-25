@@ -10,7 +10,7 @@
                 <button 
                     name="action_confirm" 
                     attrs="{'invisible': [('show_mark_as_todo', '=', False)]}" 
-                    string="Mark as Todo" 
+                    string="Marcar como hecho Introdoo" 
                     type="object" 
                     class="oe_highlight" 
                     groups="base.group_user"/>
