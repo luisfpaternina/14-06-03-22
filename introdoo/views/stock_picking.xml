@@ -13,7 +13,8 @@
                     string="Marcar como hecho Introdoo" 
                     type="object" 
                     class="oe_highlight" 
-                    groups="base.group_user"/>
+                    groups="base.group_user"
+                    confirm="Estas seguro? esto es una prueba?"/>
             </xpath>
 
         </field>
