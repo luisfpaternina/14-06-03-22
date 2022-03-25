@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* introdoo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-31 18:38+0000\n"
+"PO-Revision-Date: 2021-08-31 18:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: introdoo
+#: model_terms:ir.ui.view,arch_db:introdoo.wizard_introdoo
+msgid "Cancel"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model,name:introdoo.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__date_from
+msgid "Date From"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company__display_name
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__display_name
+msgid "Display Name"
+msgstr "Nombre Público"
+
+#. module: introdoo
+#: model_terms:ir.ui.view,arch_db:introdoo.wizard_introdoo
+msgid "General information about the company"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company__id
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__id
+msgid "ID"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.actions.act_window,name:introdoo.action_menu_wizard
+msgid "Introdoo"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company____last_update
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.ui.menu,name:introdoo.menu_introdoo
+msgid "Menu Introdoo"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_wizard_introdoo__name
+msgid "Name"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company__phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company__terms
+msgid "Terminos y condiciones"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model.fields,field_description:introdoo.field_res_company__test
+msgid "Test"
+msgstr "Prueba"
+
+#. module: introdoo
+#: model:base.automation,name:introdoo.automatization_introdoo
+#: model:ir.actions.server,name:introdoo.automatization_introdoo_ir_actions_server
+msgid "automatizacion Introdoo"
+msgstr ""
+
+#. module: introdoo
+#: model_terms:ir.ui.view,arch_db:introdoo.wizard_introdoo
+msgid "introdoo"
+msgstr ""
+
+#. module: introdoo
+#: model:ir.model,name:introdoo.model_wizard_introdoo
+msgid "wizard.introdoo"
+msgstr ""

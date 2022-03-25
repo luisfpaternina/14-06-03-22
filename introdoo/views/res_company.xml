@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_company_inherit_esvida" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//field[(@name='website')]" position="after">
+                <field name="terms"/>
+                <field name="test"/>
+                <field name="phone"/>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Introdoo" name="studio_page_HvpTb">
+                  <group name="group_principal">
+                    <group name="group_left">
+                        <field name="date1"/>
+                        <field name="date2"/>
+                        <field name="days"/>
+                    </group>
+                    <group name="group_right">
+                        
+                    </group>
+                    <field name="company_line_ids">
+                        <tree editable="bottom">
+                            <field name="partner_id"/>
+                        </tree>
+                    </field>
+                  </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>     
