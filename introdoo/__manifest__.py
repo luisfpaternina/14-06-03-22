@@ -28,7 +28,9 @@
     'depends': [
 
         'sale_management',
-        'contacts'
+        'contacts',
+        'stock',
+        'base',
     ],
 
     'data': [
@@ -36,6 +38,7 @@
         'security/ir.model.access.csv',
         'views/res_company.xml',
         'views/res_config_settings.xml',
+        'views/stock_picking.xml',
         'wizard/wizard.xml',
         'data/base_automatization.xml',           
     ],
